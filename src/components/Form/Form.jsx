@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
-import Alert from '../Alert/Alert';
+import React, { useState } from 'react'
+import Alert from '../Alert/Alert'
 
-const Form = () => {
-  const [colaboradores, setColaboradores] = useState([]);
+const Form = ({ agregarColaborador }) => {
   const [showAlert, setShowAlert] = useState(false);
-
-  const agregarColaborador = (nuevoColaborador) => {
-    setColaboradores([...colaboradores, nuevoColaborador]);
-    setShowAlert(true);
-  };
 
   const handlerSend = (e) => {
     e.preventDefault();
@@ -20,7 +14,7 @@ const Form = () => {
 
     if (nombre && correo && edad && cargo && telefono) {
       const nuevoColaborador = {
-        id: colaboradores.length + 1,
+        id: agregarColaborador.length + 1,
         nombre,
         correo,
         edad,
@@ -28,6 +22,7 @@ const Form = () => {
         telefono
       };
       agregarColaborador(nuevoColaborador);
+      setShowAlert(true);
       e.target.reset();
     } else {
       setShowAlert(false);

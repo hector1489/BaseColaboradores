@@ -1,6 +1,6 @@
 
 
-const Table = ({ BaseColaboradores }) => {
+const Table = ({ colaboradores }) => {
   return (
     <table>
       <thead>
@@ -14,7 +14,7 @@ const Table = ({ BaseColaboradores }) => {
         </tr>
       </thead>
       <tbody>
-        {BaseColaboradores.map((colaborador) => (
+        {colaboradores.map((colaborador) => (
           <tr key={colaborador.id}>
             <td>{colaborador.id}</td>
             <td>{colaborador.nombre}</td>
