@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Alert from '../Alert/Alert'
 
-const Form = ({ agregarColaborador }) => {
+const Form = ({ colaboradores, agregarColaborador }) => {
   const [showAlert, setShowAlert] = useState(false);
 
   const handlerSend = (e) => {
@@ -12,21 +12,18 @@ const Form = ({ agregarColaborador }) => {
     const cargo = e.target.elements.cargo.value;
     const telefono = e.target.elements.telefono.value;
 
-    if (nombre && correo && edad && cargo && telefono) {
-      const nuevoColaborador = {
-        id: agregarColaborador.length + 1,
-        nombre,
-        correo,
-        edad,
-        cargo,
-        telefono
-      };
-      agregarColaborador(nuevoColaborador);
-      setShowAlert(true);
-      e.target.reset();
-    } else {
-      setShowAlert(false);
-    }
+    const nuevoColaborador = {
+      id: agregarColaborador.length + 1,
+      nombre,
+      correo,
+      edad,
+      cargo,
+      telefono
+    };
+
+    agregarColaborador(nuevoColaborador);
+    setShowAlert(true);
+    e.target.reset();
   };
 
   return (
@@ -58,6 +55,6 @@ const Form = ({ agregarColaborador }) => {
       )}
     </form>
   );
-}
+};
 
 export default Form

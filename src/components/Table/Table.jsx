@@ -1,6 +1,10 @@
 
 
-const Table = ({ colaboradores }) => {
+const Table = ({ colaboradores, eliminarColaborador }) => {
+  const handleEliminar = (id) => {
+    eliminarColaborador(id);
+  };
+
   return (
     <table>
       <thead>
@@ -11,6 +15,7 @@ const Table = ({ colaboradores }) => {
           <th>edad</th>
           <th>cargo</th>
           <th>telefono</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -22,11 +27,14 @@ const Table = ({ colaboradores }) => {
             <td>{colaborador.edad}</td>
             <td>{colaborador.cargo}</td>
             <td>{colaborador.telefono}</td>
+            <td className="icon">
+              <i className="fa-solid fa-trash" onClick={() => handleEliminar(colaborador.id)}/>
+            </td>
           </tr>
         ))}
       </tbody>
     </table>
   );
-}
+};
 
 export default Table
