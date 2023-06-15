@@ -1,10 +1,8 @@
-import React from 'react';
-import Table from 'react-bootstrap/Table';
-import { BaseColaboradores } from '../../BaseColaboradores';
 
-function ResponsiveExample() {
+
+const Table = ({ colaboradores }) => {
   return (
-    <Table responsive>
+    <table>
       <thead>
         <tr>
           <th>id</th>
@@ -16,7 +14,7 @@ function ResponsiveExample() {
         </tr>
       </thead>
       <tbody>
-        {BaseColaboradores.map((colaborador) => (
+        {colaboradores.map((colaborador) => (
           <tr key={colaborador.id}>
             <td>{colaborador.id}</td>
             <td>{colaborador.nombre}</td>
@@ -27,8 +25,8 @@ function ResponsiveExample() {
           </tr>
         ))}
       </tbody>
-    </Table>
+    </table>
   );
 }
 
-export default ResponsiveExample;
+export default Table

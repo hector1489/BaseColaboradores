@@ -1,19 +1,26 @@
-import React from 'react';
-import Browser from './components/Browser/Browser';
-import Table from './components/List/List';
-import Form from './components/Form/Form';
+import React, { useState } from 'react'
+import Browser from './components/Browser/Browser'
+import Table from './components/Table/Table'
+import Form from './components/Form/Form'
 
+import { BaseColaboradores } from './BaseColaboradores'
 
 function App() {
+  const [colaboradores, setColaboradores] = useState([]);
+
+  const agregarColaborador = (nuevoColaborador) => {
+    setColaboradores([...colaboradores, nuevoColaborador]);
+  };
+
   return (
     <div className="container">
       <Browser />
       <div className="row">
         <div className="col-sm-8">
-        <Table />
+          <Table colaboradores={colaboradores} />
         </div>
         <div className="col-sm-4">
-        <Form />
+          <Form agregarColaborador={agregarColaborador} />
         </div>
       </div>
     </div>
