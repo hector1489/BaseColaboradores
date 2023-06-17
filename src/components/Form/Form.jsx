@@ -46,7 +46,6 @@ const Form = ({ agregarColaborador }) => {
         <small className="form-text text-muted">Ingrese un nombre válido (solo letras).</small>
       </div>
       <div className="form-group form-spacing">
-        <label htmlFor="exampleInputEmail">Email del colaborador</label>
         <input
           type="email"
           className="form-control"
@@ -72,7 +71,6 @@ const Form = ({ agregarColaborador }) => {
         <small className="form-text text-muted">Ingrese una edad válida (entre 1 y 99).</small>
       </div>
       <div className="form-group form-spacing">
-        <label htmlFor="exampleInputPassword2">Cargo</label>
         <input
           type="text"
           className="form-control"
@@ -83,7 +81,6 @@ const Form = ({ agregarColaborador }) => {
         />
       </div>
       <div className="form-group form-spacing">
-        <label htmlFor="exampleInputPassword3">Teléfono del colaborador</label>
         <input
           type="tel"
           className="form-control"
