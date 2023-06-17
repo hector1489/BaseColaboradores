@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import Browser from './components/Browser/Browser';
-import Table from './components/Table/Table';
-import Form from './components/Form/Form';
-import { BaseColaboradores } from './BaseColaboradores';
+import React, { useState } from 'react'
+import Browser from './components/Browser/Browser'
+import Table from './components/Table/Table'
+import Form from './components/Form/Form'
+import { BaseColaboradores } from './BaseColaboradores'
 
 function App() {
   const [colaboradores, setColaboradores] = useState(BaseColaboradores);
   const [terminoBusqueda, setTerminoBusqueda] = useState('');
 
   const agregarColaborador = (nuevoColaborador) => {
-    nuevoColaborador.id = +colaboradores[colaboradores.length -1].id +1
+    nuevoColaborador.id = parseInt(colaboradores[colaboradores.length - 1].id) + 1;//cambio "+" por parseINt
     setColaboradores([...colaboradores, nuevoColaborador]);
   };
 
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="container">
-       <Browser handleTerminoBusqueda={handleTerminoBusqueda} />
+       <Browser handleTerminoBusqueda={terminoBusqueda} onChange={handleTerminoBusqueda}/>
       <div className="row">
         <div className="col-sm-8">
           <Table colaboradores={filteredColaboradores} eliminarColaborador={eliminarColaborador} />
@@ -46,4 +46,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
